@@ -1,0 +1,21 @@
+{
+  "2fe9a762-19cb-4595-84c4-e50fc19f65e2": {
+    "click_id": "2fe9a762-19cb-4595-84c4-e50fc19f65e2",
+    "fbclid": "",
+    "fbp": "",
+    "fbc": "",
+    "utm_source": "",
+    "utm_medium": "",
+    "utm_campaign": "",
+    "utm_content": "",
+    "utm_term": "",
+    "campaign_id": "",
+    "adset_id": "",
+    "ad_id": "",
+    "landing_url": "http://localhost:3000/",
+    "timestamp": 1790524998378,
+    "client_ip": "::1",
+    "client_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "stored_at": 1790524998385
+  }
+}
