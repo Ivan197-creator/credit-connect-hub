@@ -23,7 +23,6 @@ const server=http.createServer(async(req,res)=>{
     const event={event_name:'Lead',event_time:Math.floor(Date.now()/1000),event_id:eventId,event_source_url:c.landing_url,action_source:'website',user_data};
     try{await capi(event);c.sent_events=[...(c.sent_events||[]),eventId];writeDb(db);return json(res,200,{ok:true,event_id:eventId})}catch(e){return json(res,500,{ok:false,error:e.message})}
   }
-  if(req.method==='GET'&&u.pathname==='/api/debug-clicks'){return json(res,200,readDb())}
   let file=u.pathname==='/'?'index.html':u.pathname.replace(/^\//,'');file=path.normalize(file).replace(/^\.\.(\/|\\|$)/,'');const fp=path.join(PUBLIC,file);if(!fp.startsWith(PUBLIC))return json(res,403,{error:'forbidden'});
   fs.readFile(fp,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found')}const ext=path.extname(fp);const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'};res.writeHead(200,{'content-type':types[ext]||'application/octet-stream'});res.end(d)})
 });
