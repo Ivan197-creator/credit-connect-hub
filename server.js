@@ -13,7 +13,7 @@ const server=http.createServer(async(req,res)=>{
   }
   if(u.pathname==='/api/pdl-postback'){
     const subid=u.searchParams.get('subid')||'',status=u.searchParams.get('lead_status')||'';
-    if(status&&status!=='approved')return json(res,200,{ok:true,ignored:'status'});
+    if(status&&!['approve','approved'].includes(status.toLowerCase()))return json(res,200,{ok:true,ignored:'status'});
     const db=readDb(),c=db[subid];if(!c)return json(res,404,{ok:false,error:'unknown subid'});
     const tx=u.searchParams.get('transaction_id')||u.searchParams.get('lead_id')||subid;
     const eventId='pdl_'+tx;
